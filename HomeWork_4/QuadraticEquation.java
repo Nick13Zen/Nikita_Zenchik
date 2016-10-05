@@ -1,5 +1,5 @@
 /**
- * The class contain some method for for solving quadratic equation.
+ * The class contain method for solving quadratic equation.
  * 
  * @author Nikuta Zenchik
  */
@@ -15,19 +15,19 @@ public class QuadraticEquation {
      * @param arg2 double value.
      * @param arg3 double value.
      */
-    public static void solveDiscriminant(double arg1, double arg2, double arg3){
+    public static void solveDiscriminant(double arg1, double arg2, double arg3) {
         double D = Math.pow(arg2, CONSTANT_TWO)-CONSTANT_FOUR*arg1*arg3;
         if (!(Double.isInfinite(D))) {
-            if (Main.checkZero(D)){
+            if (Main.checkZero(D)) {
                 System.out.println(Message.ONE_ANSWER);
-                System.out.println(Main.check(-(arg2 / CONSTANT_TWO * arg1)));
+                System.out.println("x1,2="+Main.check(-(arg2 / CONSTANT_TWO * arg1)));
             } else { 
-                   if (D<CONSTANT_ZERO){
+                   if (D<CONSTANT_ZERO) {
                        System.out.println(Message.LESS_THEN_ZERO);
                 } else {
                        System.out.println(Message.TWO_ANSWER);
-                       System.out.println(Main.check((-arg2+Math.sqrt(D))/(CONSTANT_TWO * arg1)));
-                       System.out.println(Main.check((-arg2-Math.sqrt(D))/(CONSTANT_TWO * arg1)));
+                       System.out.println("x1="+Main.check((-arg2+Math.sqrt(D))/(CONSTANT_TWO * arg1)));
+                       System.out.println("x2="+Main.check((-arg2-Math.sqrt(D))/(CONSTANT_TWO * arg1)));
                 }
             }
          } else {
