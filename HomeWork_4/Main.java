@@ -19,7 +19,7 @@ public class Main {
             System.out.println();
             System.out.println(Message.START);
             Double arg1 = input.nextDouble();
-            if (checkEmpty(arg1)) {
+            if (!(arg1.isNaN())) {
                 Double arg2 = input.nextDouble();
                 Double arg3 = input.nextDouble();
                 QuadraticEquation.solveDiscriminant(arg1 , arg2 , arg3);
@@ -40,19 +40,6 @@ public class Main {
               return String.valueOf(number);
         } else {
               return Message.BOUNDS_ERROR;  
-        }
-    }
-    /**
-     * The method check number for correctness and result text output.
-     * 
-     * @param number double value.
-     */
-    public static boolean checkEmpty(Double Arg1) {
-        if (!(Arg1.isNaN())) {
-            return true;
-        } else {
-            System.out.println(Message.EMPTY);
-            return false;
         }
     }
     /**
