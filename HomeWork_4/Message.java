@@ -5,7 +5,7 @@
  * @author Nikuta Zenchik
  */
 public class Message {
-    public static final String ABOUT = "The program finds out is it a triangular and whiсh kind of it.";
+    public static final String ABOUT = "The program solves quadratic equation and prints results.";
 
     public static final String ERROR_NOT_A_NUMBER = "Error. Input is " +
             "incorrect. Only numbers are allowed. Separator between integral " +
@@ -30,12 +30,4 @@ public class Message {
 
     public static final String NAN_NUMBER = "Sorry, we can't calculate that " +
             "value.";
-
-    public static final String EQUILATERAL = "Equilateral triangle.";
-
-    public static final String ISOSCELES = "Isosceles triangle.";
-
-    public static final String SIMPLE = "Simple triangular.";
-
-    public static final String NOT_A_TRIANGULAR = "Not a triangular.";
 }
