@@ -29,10 +29,10 @@ public class Main {
         }
     }
     /**
- * The method check number for correctness and result text output.
- * 
- * @param number double value.
- */
+     * The method check number for correctness and result text output.
+     * 
+     * @param number double value.
+     */
     public static String check(double number) {
         if (Double.isNaN(number)) {
             return Message.NAN_NUMBER;
@@ -49,9 +49,9 @@ public class Main {
      */
     public static boolean checkEmpty(Double Arg1){
         if (!(Arg1.isNaN())) {
-            System.out.println(Message.EMPTY);
            return true;
         } else {
+        	System.out.println(Message.EMPTY);
            return false;
         }
     }
