@@ -12,17 +12,17 @@ public class Main {
     /**
      * Print message and receive three numbers from console.
      */
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         Scanner input = new Scanner(System.in);
         try {
             System.out.println(Message.ABOUT);
             System.out.println();
             System.out.println(Message.START);
             Double arg1 = input.nextDouble();
-            if (checkEmpty(arg1)){
+            if (checkEmpty(arg1)) {
                 Double arg2 = input.nextDouble();
                 Double arg3 = input.nextDouble();
-               if (checkZero(arg1, arg2, arg3)){
+               if (checkZero(arg1, arg2, arg3)) {
                    solve(arg1 , arg2 , arg3);
                } else {
                    System.out.println(Message.AGR_ZERO);
@@ -37,7 +37,7 @@ public class Main {
      * 
      * @param number double value.
      */
-    public static boolean checkEmpty(Double Arg1){
+    public static boolean checkEmpty(Double Arg1) {
         if (!(Arg1.isNaN())) {
             return true;
         } else {
@@ -52,8 +52,9 @@ public class Main {
      * @return True if zero!=0.
      * @return False if zero==0.
      */
-    public static boolean checkZero(double arg1, double arg2, double arg3){
-        if (!(new Double(1.0/arg1).isInfinite()) || (new Double(1.0/arg2).isInfinite()) || (new Double(1.0/arg3).isInfinite())){	
+    public static boolean checkZero(double arg1, double arg2, double arg3) {
+        if (!(new Double(1.0/arg1).isInfinite()) || (new Double(1.0/arg2).isInfinite())
+                || (new Double(1.0/arg3).isInfinite())) {
             return true;
          } else {
             return false;
@@ -66,12 +67,12 @@ public class Main {
      * @param arg2 double value.
      * @param arg3 double value.
      */
-    public static void solve(double arg1,double arg2, double arg3){
-        if (((arg1+arg2)>arg3) && ((arg1+arg3)>arg2) && ((arg3+arg2)>arg1)){
-            if ((arg1==arg2) && (arg2==arg3) && (arg1==arg3)){
+    public static void solve(double arg1,double arg2, double arg3) {
+        if (((arg1+arg2)>arg3) && ((arg1+arg3)>arg2) && ((arg3+arg2)>arg1)) {
+            if ((arg1==arg2) && (arg2==arg3) && (arg1==arg3)) {
                  System.out.println(Message.EQUILATERAL);
             } else {
-                if ((arg1==arg2) || (arg2==arg3) || (arg1==arg3)){
+                if ((arg1==arg2) || (arg2==arg3) || (arg1==arg3)) {
                      System.out.println(Message.ISOSCELES);
                 } else {
                 	 System.out.println(Message.SIMPLE);
