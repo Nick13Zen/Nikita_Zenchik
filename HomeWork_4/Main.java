@@ -12,14 +12,14 @@ public class Main {
     /**
      * Print message and receive three numbers from console.
      */
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         Scanner input = new Scanner(System.in);
         try {
             System.out.println(Message.ABOUT);
             System.out.println();
             System.out.println(Message.START);
             Double arg1 = input.nextDouble();
-            if (checkEmpty(arg1)){
+            if (checkEmpty(arg1)) {
                 Double arg2 = input.nextDouble();
                 Double arg3 = input.nextDouble();
                 QuadraticEquation.solveDiscriminant(arg1 , arg2 , arg3);
@@ -47,12 +47,12 @@ public class Main {
      * 
      * @param number double value.
      */
-    public static boolean checkEmpty(Double Arg1){
+    public static boolean checkEmpty(Double Arg1) {
         if (!(Arg1.isNaN())) {
-           return true;
+            return true;
         } else {
-        	System.out.println(Message.EMPTY);
-           return false;
+            System.out.println(Message.EMPTY);
+            return false;
         }
     }
     /**
@@ -62,7 +62,7 @@ public class Main {
      * @return True if zero==0.
      * @return False if zero!=0.
      */
-    public static boolean checkZero(double zero){
+    public static boolean checkZero(double zero) {
         if (new Double(1.0/zero).isInfinite()) {	
            return true;
          } else {
