@@ -20,11 +20,10 @@ public class Main {
             System.out.println(Message.START);
             Double arg1 = input.nextDouble();
             if (checkEmpty(arg1)){
-                System.exit(0);
-            }
                 Double arg2 = input.nextDouble();
                 Double arg3 = input.nextDouble();
                 QuadraticEquation.solveDiscriminant(arg1 , arg2 , arg3);
+            }
         } catch (Exception exp) {
             System.out.println(Message.ERROR_NOT_A_NUMBER);
         }
@@ -49,7 +48,7 @@ public class Main {
      * @param number double value.
      */
     public static boolean checkEmpty(Double Arg1){
-        if (Arg1.isNaN()) {
+        if (!(Arg1.isNaN())) {
             System.out.println(Message.EMPTY);
            return true;
         } else {
