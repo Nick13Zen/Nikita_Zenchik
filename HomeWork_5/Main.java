@@ -20,15 +20,12 @@ public class Main {
             System.out.println(Message.START);
             Double arg1 = input.nextDouble();
             if (checkEmpty(arg1)){
-                System.exit(0);
-            } else {
                 Double arg2 = input.nextDouble();
                 Double arg3 = input.nextDouble();
                if (checkZero(arg1, arg2, arg3)){
                    solve(arg1 , arg2 , arg3);
                } else {
                    System.out.println(Message.AGR_ZERO);
-                   System.exit(0);
                }
             }
         } catch (Exception exp) {
@@ -41,10 +38,10 @@ public class Main {
      * @param number double value.
      */
     public static boolean checkEmpty(Double Arg1){
-        if (Arg1.isNaN()) {
-            System.out.println(Message.EMPTY);
+        if (!(Arg1.isNaN())) {
             return true;
         } else {
+        	 System.out.println(Message.EMPTY);
             return false;
         }
     }
@@ -82,7 +79,6 @@ public class Main {
             }
         } else {
                System.out.println(Message.NOT_A_TRIANGULAR);
-               System.exit(0);
         }
     }
 }
