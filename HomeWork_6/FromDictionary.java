@@ -4,28 +4,26 @@
  *
  * @author Nikita Zenchik
  */
-public class FromDictionary {
+public class FromDictionary extends Rule {
+    //constant
+    static final String dictionary = "start";
+
     /**
      * Method takes String line and finds if there is at lest one number.
      *
      * @param inputline string line.
-     * @return True if line doesn't contain word from dictionary.
-     * @return False if line contains word from dictionary.
+     * @return True if line contains word from dictionary otherwise False.
      */
-    public static boolean findMatche(String inputline) {
-        String dictionary = "start";
-        if (inputline.contains(dictionary)) {
-            FromDictionary.printResult();
-            return false;
-        } else {
-            return true;
-        }
+    @Override
+    public boolean identifyRule(String inputline) {
+        return (inputline.contains(dictionary));
     }
 
     /**
      * Method prints out line.
      */
-    public static void printResult() {
+    @Override
+    public void printResult() {
         System.out.println(Message.FROM_DICTIONARY);
     }
 }

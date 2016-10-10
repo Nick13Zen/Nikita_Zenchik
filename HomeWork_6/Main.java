@@ -7,28 +7,31 @@ import java.util.Scanner;
  * @author Nikita Zenchik
  */
 public class Main {
-
+    /**
+     * Method that reads input from command line and transmits it to other classes.
+     */
     public static void main(String[] args) {
-        
-        boolean allnumbers;
-        boolean fivewords;
-        boolean nonumbers;
-        boolean fromdictionary;
-        
         System.out.println(Message.ABOUT);
         System.out.println(Message.START);
         Scanner input = new Scanner(System.in);
-        String inputline = input.nextLine();
-        if (!inputline.isEmpty()) {
-           allnumbers = AllNumbers.findAllNumbers(inputline);
-            nonumbers = NoNumbers.findNumber(inputline);
-            fivewords = FiveWords.howManyWords(inputline);
-            fromdictionary = FromDictionary.findMatche(inputline);
-            if(allnumbers && fivewords && nonumbers && fromdictionary){
+        String inputLine = input.nextLine();
+        if (inputLine != null && !inputLine.isEmpty()) {
+            Rule[] rulesList = { new AllNumbers()
+                    , new NoNumbers()
+                    , new MoreThanFiveWords()
+                    , new FromDictionary() };
+            boolean noHits = true;
+            for (Rule rule : rulesList) {
+                if (rule.identifyRule(inputLine)) {
+                    rule.printResult();
+                    noHits = false;
+                }
+            }
+            if (noHits) {
                 System.out.println(Message.NO_HITS);
             }
         } else {
-           System.out.println(Message.EMPTY_LINE);
+            System.out.println(Message.EMPTY_LINE);
         }
     }
 

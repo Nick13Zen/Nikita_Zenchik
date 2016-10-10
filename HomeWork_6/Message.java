@@ -4,7 +4,7 @@
  * @author Nikuta Zenchik
  */
 abstract public class Message {
-    public static final String ABOUT = "The program finds if line entered satisfie any of four rules.";
+    public static final String ABOUT = "The program finds if line entered satisfies any of four rules.";
 
     public static final String START = "Enter line.";
 

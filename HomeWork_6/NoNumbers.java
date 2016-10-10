@@ -7,30 +7,25 @@ import java.util.regex.Pattern;
  *
  * @author Nikita Zenchik
  */
-abstract class NoNumbers {
+public class NoNumbers extends Rule {
     /**
      * Method takes String line and finds if there is at lest one number.
      *
      * @param inputline string line.
-     * @return True if line contains no numbers.
-     * @return False if line contains at least one number.
+     * @return True if line contains at least one number otherwise False.
      */
-    public static boolean findNumber(String inputline) {
+	@Override
+    public boolean identifyRule(String inputline) {
         Pattern find = Pattern.compile("^\\D+$");
         Matcher in = find.matcher(inputline);
-        if (in.matches()) {
-            NoNumbers.printResult();
-            return false;
-        } else {
-            return true;
-        }
+        return in.matches();
     }
 
     /**
      * Method prints out line.
      */
-    public static void printResult() {
+	@Override
+    public void printResult () {
         System.out.println(Message.NO_NUMBERS);
     }
-
 }
