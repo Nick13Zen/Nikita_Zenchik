@@ -42,7 +42,7 @@ public class Main {
             Printer output = new Printer();
             for (Map.Entry<String, Moveable> vehicle : transport.entrySet()) {
                 moveVehicles(vehicle, checkpoints);
-                output.printStats(vehicle);
+                output.printMessage(vehicle);
             }
         } catch (NumberFormatException e) {
             System.out.println("Error. Incorrect input ");

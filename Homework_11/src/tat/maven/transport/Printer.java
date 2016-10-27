@@ -12,7 +12,7 @@ public class Printer {
      *
      * @param vehicle list of vehicles
      */
-    public void printStats(Map.Entry<String, Moveable> vehicle) {
+    public void printMessage(Map.Entry<String, Moveable> vehicle) {
         System.out.println("Transport: " + vehicle.getKey());
         System.out.println("Time = " + vehicle.getValue().getTime());
         System.out.println("Cost (BYN) = " + vehicle.getValue().getCost());
