@@ -27,4 +27,12 @@ public class BusTest {
         assertTrue(bus.getTime().equals("0 hours 0 minutes"));
     }
 
+    @Test
+    public void moveToNextPointTestTime() {
+        Bus bus = new Bus(1.0, 2, new BigDecimal(1.0));
+        String start = bus.getTime();
+        bus.moveToNextPoint(0, 2);
+        assertNotEquals(start, bus.getTime());
+    }
+
 }

@@ -25,4 +25,12 @@ public class CarTest {
         Car car = new Car(1.0, new BigDecimal(1.0));
         assertTrue(car.getTime().equals("0 hours 0 minutes"));
     }
+
+    @Test
+    public void moveToNextPointTestTime() {
+        Car car = new Car(1.0, new BigDecimal(1.0));
+        String start = car.getTime();
+        car.moveToNextPoint(0, 2);
+        assertNotEquals(start, car.getTime());
+    }
 }

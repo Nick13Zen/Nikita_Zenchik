@@ -14,5 +14,12 @@ public class OnfootTest {
         Onfoot onfoot = new Onfoot(1.0);
         assertTrue(onfoot.getTime().equals("0 hours 0 minutes"));
     }
+    @Test
+    public void moveToNextPointTestTime() {
+        Onfoot onfoot = new Onfoot(1.0);
+        String start = onfoot.getTime();
+        onfoot.moveToNextPoint(0, 2);
+        assertNotEquals(start, onfoot.getTime());
+    }
 
 }
