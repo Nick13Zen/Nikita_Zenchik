@@ -19,7 +19,7 @@ public interface Moveable {
     /**
      * Method will be implemented by inherits
      */
-    String getTime();
+    double getTime();
 
     /**
      * Method will be implemented by inherits

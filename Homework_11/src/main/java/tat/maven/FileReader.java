@@ -28,7 +28,7 @@ public class FileReader {
                 }
                 checkpoints.add(currentCoordinates);
             }
-            if (validation(checkpoints)) {
+            if (!validation(checkpoints)) {
                 throw new Exception();
             }
         } catch (FileNotFoundException e) {
@@ -45,6 +45,6 @@ public class FileReader {
      */
     public boolean validation(ArrayList<String[]> checkpoints) {
         return (Double.parseDouble(checkpoints.get(0)[0])
-                == Double.parseDouble(checkpoints.get(checkpoints.size() - 1)[1]));
+                != Double.parseDouble(checkpoints.get(checkpoints.size() - 1)[1]));
     }
 }

@@ -29,13 +29,12 @@ public class BusTest {
 
     @Test
     public void getTime() {
-        System.out.println(bus.getTime());
-        assertTrue(bus.getTime().equals("0 hours 0 minutes"));
+        assertTrue(bus.getTime() == 0);
     }
 
     @Test
     public void moveToNextPointTestTime() {
-        String start = bus.getTime();
+        double start = bus.getTime();
         bus.moveToNextPoint(0, 2);
         assertNotEquals(start, bus.getTime());
     }

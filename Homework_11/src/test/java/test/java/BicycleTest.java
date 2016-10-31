@@ -19,12 +19,12 @@ public class BicycleTest {
 
     @Test
     public void getTime() {
-        assertTrue(bicycle.getTime().equals("0 hours 0 minutes"));
+        assertTrue(bicycle.getTime() == 0);
     }
 
     @Test
     public void moveToNextPointTestTime() {
-        String start = bicycle.getTime();
+        double start = bicycle.getTime();
         bicycle.moveToNextPoint(0, 2);
         assertNotEquals(start, bicycle.getTime());
     }

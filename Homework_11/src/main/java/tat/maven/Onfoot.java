@@ -14,7 +14,8 @@ public class Onfoot implements Moveable {
     /**
      * Current coordinates
      */
-    private double x = 0.0, y = 0.0;
+    private double x = 0.0;
+    private double y = 0.0;
 
     /**
      * Constructor creates the vehicle, set average speed
@@ -59,9 +60,8 @@ public class Onfoot implements Moveable {
      * @return line with current time
      */
     @Override
-    public String getTime() {
-        return (int) (travelTime) + " hours "
-                + Math.round((travelTime - (int) travelTime) * 60) + " minutes";
+    public double getTime() {
+        return travelTime;
     }
 
     /**

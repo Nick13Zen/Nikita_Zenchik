@@ -19,12 +19,12 @@ public class OnfootTest {
 
     @Test
     public void getTime() throws Exception {
-        assertTrue(onfoot.getTime().equals("0 hours 0 minutes"));
+        assertTrue(onfoot.getTime() == 0);
     }
 
     @Test
     public void moveToNextPointTestTime() {
-        String start = onfoot.getTime();
+        double start = onfoot.getTime();
         onfoot.moveToNextPoint(0, 2);
         assertNotEquals(start, onfoot.getTime());
     }

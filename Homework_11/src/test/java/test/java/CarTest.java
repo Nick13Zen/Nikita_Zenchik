@@ -27,12 +27,12 @@ public class CarTest {
 
     @Test
     public void getTime() {
-        assertTrue(car.getTime().equals("0 hours 0 minutes"));
+        assertTrue(car.getTime() == 0);
     }
 
     @Test
     public void moveToNextPointTestTime() {
-        String start = car.getTime();
+        double start = car.getTime();
         car.moveToNextPoint(0, 2);
         assertNotEquals(start, car.getTime());
     }
