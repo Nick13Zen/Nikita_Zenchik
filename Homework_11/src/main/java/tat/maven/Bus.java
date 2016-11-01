@@ -48,6 +48,8 @@ public class Bus implements Moveable {
     public void setStartPoint(double x, double y) {
         this.x = x;
         this.y = y;
+        travelTime = 0;
+        travelCost = 0;
     }
 
     /**

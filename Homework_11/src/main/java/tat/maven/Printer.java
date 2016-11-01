@@ -15,7 +15,8 @@ public class Printer {
     public void printMessage(Map.Entry<String, Moveable> vehicle) {
         System.out.println("Transport: " + vehicle.getKey());
         System.out.println("Time = " + (int) (vehicle.getValue().getTime()) + " hours "
-                + Math.round((vehicle.getValue().getTime() - (int) vehicle.getValue().getTime()) * 60) + " minutes");
+                + Math.round((vehicle.getValue().getTime()
+                - (int) vehicle.getValue().getTime()) * 60) + " minutes");
         System.out.println("Cost (BYN) = " + vehicle.getValue().getCost());
     }
 }

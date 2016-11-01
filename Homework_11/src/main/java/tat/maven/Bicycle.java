@@ -10,6 +10,7 @@ public class Bicycle implements Moveable {
      */
     private double averageSpeed = 0.0;
     public static final String NAME = "Bicycle";
+    private double travelCost = 0;
     private double travelTime = 0.0;
 
     /**
@@ -37,6 +38,7 @@ public class Bicycle implements Moveable {
     public void setStartPoint(double x, double y) {
         this.x = x;
         this.y = y;
+        travelTime = 0;
     }
 
     /**
@@ -68,11 +70,11 @@ public class Bicycle implements Moveable {
     /**
      * Method returns cost of travel. Travelling by bicycle doesn't waste any resources, so method returns zero
      *
-     * @return zero
+     * @return travelCost
      */
     @Override
     public double getCost() {
-        return 0;
+        return travelCost;
     }
 
     /**
