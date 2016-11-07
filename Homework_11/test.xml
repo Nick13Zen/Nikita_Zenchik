@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Transport Suite">
+    <test name="Car Test" preserve-order="true">
+        <classes>
+            <class name="test.java.CarTest">
+            <methods>
+                <execute name ="moveToNextPoint()"/>
+            </methods>
+            </class>
+        </classes>
+    </test><!-- Car Test -->
+    <test name="Bus Test" preserve-order="true">
+        <classes>
+            <class name="test.java.BusTest">
+            <methods>
+                <execute name ="moveToNextPoint()"/>
+            </methods>
+            </class>
+        </classes>
+    </test><!-- Bus Test -->
+    <test name="Onfoot Test" preserve-order="true">
+        <classes>
+            <class name="test.java.OnfootTest">
+                <methods>
+                    <execute name ="moveToNextPoint()"/>
+                </methods>
+            </class>
+        </classes>
+    </test><!-- Onfoot Test -->
+    <test name="Bicycle Test" preserve-order="true">
+        <classes>
+            <class name="test.java.BicycleTest">
+                <methods>
+                    <execute name ="moveToNextPoint()"/>
+                </methods>
+            </class>
+        </classes>
+    </test><!-- Bicycle Test -->
+</suite>
