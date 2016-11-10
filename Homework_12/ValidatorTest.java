@@ -1,6 +1,5 @@
 import static org.testng.Assert.*;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -11,26 +10,26 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.security.InvalidParameterException;
+
 
 /**
  * Created by Nick on 07/11/16.
  */
 public class ValidatorTest {
     private Solve solve;
+    private static String FilePath = "./unitTestInputData.xml";
 
     @BeforeTest
     public void setUp() throws Exception {
         solve = new Solve();
     }
 
-    @DataProvider(name = "positiveForIsosceles")
-    public Object[][] getIsoscelesNumber() throws Exception {
-        File inputFile = new File("./unitTestInputData.xml");
+    public static Object[][] readFromXML(String tagName) throws Exception {
+        File inputFile = new File(FilePath);
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(inputFile);
-        NodeList nodes = document.getElementsByTagName("positiveForIsosceles");
+        NodeList nodes = document.getElementsByTagName(tagName);
         Object[][] result = new Double[nodes.getLength()][];
         for (int i = 0; i < nodes.getLength(); i++) {
             NamedNodeMap attrs = nodes.item(i).getAttributes();
@@ -41,49 +40,31 @@ public class ValidatorTest {
             };
         }
         return result;
+    }
+
+    @DataProvider(name = "positiveForIsosceles")
+    public Object[][] getIsoscelesNumber() throws Exception {
+        return readFromXML("positiveForIsosceles");
     }
 
     @DataProvider(name = "positiveForEquilateral")
     public Object[][] getEquilateralNumber() throws Exception {
-        File inputFile = new File("./unitTestInputData.xml");
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(inputFile);
-        NodeList nodes = document.getElementsByTagName("positiveForEquilateral");
-        Object[][] result = new Double[nodes.getLength()][];
-        for (int i = 0; i < nodes.getLength(); i++) {
-            NamedNodeMap attrs = nodes.item(i).getAttributes();
-            result[i] = new Double[]{
-                    Double.parseDouble(attrs.getNamedItem("side_a").getNodeValue()),
-                    Double.parseDouble(attrs.getNamedItem("side_b").getNodeValue()),
-                    Double.parseDouble(attrs.getNamedItem("side_c").getNodeValue()),
-            };
-        }
-        return result;
+        return readFromXML("positiveForEquilateral");
     }
 
     @DataProvider(name = "positiveForSimple")
     public Object[][] getSimpleNumber() throws Exception {
-        File inputFile = new File("./unitTestInputData.xml");
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(inputFile);
-        NodeList nodes = document.getElementsByTagName("positiveForSimple");
-        Object[][] result = new Double[nodes.getLength()][];
-        for (int i = 0; i < nodes.getLength(); i++) {
-            NamedNodeMap attrs = nodes.item(i).getAttributes();
-            result[i] = new Double[]{
-                    Double.parseDouble(attrs.getNamedItem("side_a").getNodeValue()),
-                    Double.parseDouble(attrs.getNamedItem("side_b").getNodeValue()),
-                    Double.parseDouble(attrs.getNamedItem("side_c").getNodeValue()),
-            };
-        }
-        return result;
+        return readFromXML("positiveForSimple");
+    }
+
+    @DataProvider(name = "positiveForCheckZero")
+    public Object[][] getZeroNumbers() throws Exception {
+        return readFromXML("positiveForCheckZero");
     }
 
     @DataProvider(name = "invalidData")
     public Object[][] negativeValues() throws Exception {
-        File inputFile = new File("./unitTestInputData.xml");
+        File inputFile = new File(FilePath);
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(inputFile);
@@ -120,25 +101,6 @@ public class ValidatorTest {
         return result;
     }
 
-    @DataProvider(name = "positiveForCheckZero")
-    public Object[][] getZeroNumbers() throws Exception {
-        File inputFile = new File("./unitTestInputData.xml");
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(inputFile);
-        NodeList nodes = document.getElementsByTagName("positiveForCheckZero");
-        Object[][] result = new Double[nodes.getLength()][];
-        for (int i = 0; i < nodes.getLength(); i++) {
-            NamedNodeMap attrs = nodes.item(i).getAttributes();
-            result[i] = new Double[]{
-                    Double.parseDouble(attrs.getNamedItem("side_a").getNodeValue()),
-                    Double.parseDouble(attrs.getNamedItem("side_b").getNodeValue()),
-                    Double.parseDouble(attrs.getNamedItem("side_c").getNodeValue()),
-            };
-        }
-        return result;
-    }
-
     @Test(dataProvider = "positiveForEquilateral")
     public void testEquilateral(double a, double b, double c) throws Exception {
         assertEquals(solve.solveTriangular(a, b, c), "Equilateral triangle.");
@@ -163,7 +125,6 @@ public class ValidatorTest {
     public void testCheckInvalidData(double a, double b, double c) throws Exception {
         Validator validator = new Validator();
         validator.checkInvalidData(a, b, c);
-        //Assert.assertEquals(validator.checkInvalidData(a, b, c), InvalidParameterException.class);
     }
 
     @Test(dataProvider = "positiveForCheckZero")
