@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <positiveForIsosceles side_a="3.0" side_b="5.0" side_c="5.0"/>
+    <positiveForIsosceles side_a="150" side_b="156.3" side_c="156.3"/>
+    <positiveForIsosceles side_a="1500" side_b="1765.67" side_c="1765.67"/>
+    <positiveForIsosceles side_a="135" side_b="135" side_c="134.99999"/>
+    <positiveForIsosceles side_a="1765.67406" side_b="1765.67456" side_c="1765.67456"/>
+
+    <positiveForEquilateral side_a="17" side_b="17" side_c="17"/>
+
+    <positiveForSimple side_a="10.0" side_b="45.0" side_c="37.0"/>
+    <positiveForSimple side_a="45.4" side_b="65.8" side_c="32.6"/>
+    <positiveForSimple side_a="130.6" side_b="234.0" side_c="124.7"/>
+    <positiveForSimple side_a="1.75" side_b="2.55" side_c="3.25"/>
+
+    <negativeValues side_a="10" side_b="Infinity" side_c="23"/>
+    <negativeValues side_a="10" side_b="7" side_c="Infinity"/>
+    <negativeValues side_a="Infinity" side_b="7" side_c="10"/>
+    <negativeValues side_a="10" side_b="NaN" side_c="23"/>
+    <negativeValues side_a="NaN" side_b="7" side_c="10"/>
+    <negativeValues side_a="10" side_b="7" side_c="NaN"/>
+    <negativeValues side_a="10" side_b="7" side_c="-Infinity"/>
+    <negativeValues side_a="10" side_b="-Infinity" side_c="7"/>
+    <negativeValues side_a="-Infinity" side_b="7" side_c="10"/>
+    <negativeValues side_a="MaX" side_b="MaX" side_c="1"/>
+    <negativeValues side_a="MiN" side_b="0.1E323" side_c="MiN"/>
+
+    <positiveForCheckZero side_a="0" side_b="5" side_c="5"/>
+    <positiveForCheckZero side_a="5" side_b="5" side_c="0"/>
+    <positiveForCheckZero side_a="5" side_b="5" side_c="0"/>
+</data>
