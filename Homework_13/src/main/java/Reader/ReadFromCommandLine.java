@@ -9,32 +9,23 @@ import java.util.Scanner;
  * Created by Nikita Zenchik.
  */
 public class ReadFromCommandLine extends Reader {
+    private String[] args;
+    private ArrayList<String> listOfCommands = new ArrayList<String>();
 
-    public ArrayList<String> listOfCommands = new ArrayList<String>();
+    public ReadFromCommandLine(String[] args) {
+        this.args = args;
+    }
 
     /**
      * Method to read from command line.
      */
     @Override
-    public void readCommands() {
-        String inputLine;
-        Scanner input = new Scanner(System.in);
-        String argument ="";
-        do {
-            System.out.println("Enter command");
-            inputLine = input.nextLine();
-            listOfCommands.add(inputLine);
-            System.out.println("Continue? (Enter 'yes' to repeat, any to continue)");
-            argument = input.nextLine();
-        } while (argument.equals("yes"));
-    }
-
-    /**
-     * mehod to get list of commands
-     *
-     * @return ArrayList of commands
-     */
-    public ArrayList<String> getListOfCommands() {
+    public ArrayList<String> readCommands() {
+        for (String line : args) {
+            line = line.replaceAll("\"","");
+            listOfCommands.add(line);
+        }
         return listOfCommands;
     }
+
 }

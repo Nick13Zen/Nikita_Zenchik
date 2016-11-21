@@ -1,4 +1,7 @@
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.ArrayList;
 
 
@@ -35,6 +38,7 @@ public class Executer {
         String id;
         TxtFileMaker txtFile = new TxtFileMaker();
         Commands commands = new Commands();
+        WebDriver driver = new ChromeDriver();
         for (String openCommand : openCommands) {
             id = openCommand.split(" ")[0];
             fileData.add(
@@ -44,7 +48,8 @@ public class Executer {
                 if (command.split(" ")[0].equals(id)) {
                     if (command.split(" ")[1].equals("checkLinkPresentByHref")) {
                         fileData.add(
-                                commands.checkLinkPresentByHref(command.split(" ")[2].replaceAll(" \"","")));
+                                commands.checkLinkPresentByHref(
+                                        command.split(" ")[2].replaceAll(" \"","")));
                     } else if (command.split(" ")[1].equals("checkPageTitle")) {
                         fileData.add(
                                 commands.checkPageTitle(command.split(" ")[2].replaceAll(" \"","")));
@@ -58,6 +63,7 @@ public class Executer {
                 }
             }
         }
+        driver.quit();
         try {
             TxtFileMaker tx = new TxtFileMaker();
             tx.txtFileWriter(commands.getFailedTests(),

@@ -11,7 +11,7 @@ public class TxtFileMaker {
      */
     public void txtFileWriter(int failedTests,
                               int passedTests,
-                              double allCommandTime,
+                              long allCommandTime,
                               ArrayList<String> txtFileData) throws IOException {
         BufferedWriter outPut = new BufferedWriter(new FileWriter("log.txt"));
         for (String line : txtFileData) {

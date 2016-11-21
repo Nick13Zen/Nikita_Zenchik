@@ -15,7 +15,6 @@ public abstract class Reader {
      * Method to read data from file.
      * Will be implemented by inherits
      */
-    public void readCommands() throws IOException, SAXException, ParserConfigurationException {
-
-    }
+    public abstract ArrayList<String> readCommands()
+            throws IOException, SAXException, ParserConfigurationException;
 }

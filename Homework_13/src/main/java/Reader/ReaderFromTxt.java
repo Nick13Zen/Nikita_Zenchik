@@ -1,6 +1,7 @@
 package Reader;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,15 +11,18 @@ import java.util.ArrayList;
  * Created by Nikita Zenchik.
  */
 public class ReaderFromTxt extends Reader {
-    private static String FilePath = "./InputData.txt";
-    public ArrayList<String> listOfCommands = new ArrayList<String>();
+    private File file;
+    private ArrayList<String> listOfCommands = new ArrayList<String>();
 
+    public ReaderFromTxt(File file){
+        this.file = file;
+    }
     /**
      * Method to read data from Txt file.
      */
     @Override
-    public void readCommands() throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader(FilePath));
+    public ArrayList<String> readCommands() throws IOException {
+        BufferedReader in = new BufferedReader(new FileReader(file));
         String line;
         line = in.readLine();
         while (line != null) {
@@ -26,13 +30,6 @@ public class ReaderFromTxt extends Reader {
             line = in.readLine();
         }
         in.close();
-    }
-    /**
-     * mehod to get list of commands
-     * @return ArrayList of commands
-     */
-    public ArrayList<String> getListOfCommands(){
-
         return listOfCommands;
     }
 }

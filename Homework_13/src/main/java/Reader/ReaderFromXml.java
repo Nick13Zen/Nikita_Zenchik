@@ -18,18 +18,21 @@ import org.xml.sax.SAXException;
  * Created by Nikita Zenchik.
  */
 public class ReaderFromXml extends Reader {
-    private static String FilePath = "./InputData.xml";
-    public ArrayList<String> listOfCommands = new ArrayList<String>();
+    private File file;
+    private ArrayList<String> listOfCommands = new ArrayList<String>();
+
+    public ReaderFromXml(File file) {
+        this.file = file;
+    }
 
     /**
      * Method to read data from Xml file.
      */
     @Override
-    public void readCommands() throws IOException, SAXException, ParserConfigurationException {
-        File inputFile = new File(FilePath);
+    public ArrayList<String> readCommands() throws IOException, SAXException, ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(inputFile);
+        Document document = builder.parse(file);
         NodeList nodes = document.getElementsByTagName("commands");
         for (int i = 0; i < nodes.getLength(); i++) {
             NamedNodeMap attrs = nodes.item(i).getAttributes();
@@ -44,14 +47,6 @@ public class ReaderFromXml extends Reader {
                         attrs.getNamedItem("attribute").getNodeValue());
             }
         }
-    }
-
-    /**
-     * method to get list of commands
-     *
-     * @return ArrayList of commands
-     */
-    public ArrayList<String> getListOfCommands() {
         return listOfCommands;
     }
 }
