@@ -1,0 +1,6 @@
+{
+  "commands": [
+    "google open http://www.google.com 3",
+    "google checkPageTitle Google Search"
+  ]
+}
