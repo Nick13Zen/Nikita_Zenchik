@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <commands id="google" command="open" address="http://www.google.com" time="3"/>
+    <commands id="google" command="checkPageTitle" attribute="Google"/>
+</data>
